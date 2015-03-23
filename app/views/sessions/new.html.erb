@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Log In</h1>
+
+  <%= flash[:alert] %>
+
+  <%= form_tag sessions_path do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <%= submit_tag "Log in" %>
+  <% end %>
+</div>
