@@ -1,0 +1,19 @@
+<% if !current_user %>
+  <p><%= link_to "Register", new_user_path %> or <%= link_to "Log in", new_session_path %></p>
+<% end %>
+
+<% if current_user %>
+  <p><%= link_to "Add a new question", new_question_path %> or <%= link_to "Log out", session_path(session), :data => {:method => "delete"} %></p>
+<% end %>
+
+<% if @questions.any? %>
+  <% @questions.each do |question| %>
+    <ul>
+    </li><%= link_to question.title, question_path(question.id) %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>
+    There are no questions yet!
+  </p>
+<% end %>
