@@ -7,6 +7,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem "factory_girl_rails", "~> 4.0"
 
 group :development do
   gem 'byebug'
@@ -21,4 +22,5 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'capybara'
 end
