@@ -5,7 +5,11 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @user = current_user
+    if current_user == nil
+      redirect_to new_session_path
+    else
+      @user = current_user
+    end
   end
 
   def create
