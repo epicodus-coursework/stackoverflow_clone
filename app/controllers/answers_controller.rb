@@ -7,8 +7,7 @@ class AnswersController < ApplicationController
   def create
     @user = current_user
     @question = Question.find(params[:question_id])
-    @answer = @user.answers.new(answer_params)
-    @answer.update({question_id: @question.id})
+    @answer = @question.answers.new(answer_params)
 
     if @answer.save
       flash[:notice] = "Your answer was added"
@@ -24,7 +23,7 @@ class AnswersController < ApplicationController
 
 private
   def answer_params
-    params.require(:answer).permit(:body)
+    params.require(:answer).permit(:body).merge(user_id: current_user.id)
   end
 
 end
