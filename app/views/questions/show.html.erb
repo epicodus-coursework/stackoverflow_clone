@@ -3,3 +3,14 @@
 <p><%= @question.body %></p>
 
 <p><%= link_to "Home", "/" %></p>
+
+<p><%= link_to "Add answer", new_question_answer_path(@question) %>
+
+
+<% if @answers.any? %>
+  <% @answers.each do |answer| %>
+    <ul>
+      <li><%= answer.body %></li>
+    </ul>
+  <% end %>
+<% end %>
